@@ -3,6 +3,7 @@ import { Reveal, SectionLabel } from "@/components/ui-bits/Reveal";
 export default function FounderMessage() {
   return (
     <section
+      id="about"
       data-testid="founder-section"
       className="bg-[#F8F7F4] py-24 md:py-36"
     >

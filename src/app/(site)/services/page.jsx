@@ -5,9 +5,16 @@ import ContactCTA from "@/components/sections/ContactCTA";
 import ProcessSection from "@/components/sections/ProcessSection";
 
 export const metadata = {
-  title: "Services — Harsimran Architects & Builders",
+  title: "Services",
   description:
-    "Architecture, construction, interiors, government approvals and project management — one accountable team from concept to handover.",
+    "Architecture, construction, interiors, government approvals and project management from Harsimran Architects & Builders — one accountable team from concept to handover.",
+  keywords: [
+    "Harsimran Builders services",
+    "architecture services Amritsar",
+    "construction services Punjab",
+    "turnkey construction Amritsar",
+  ],
+  alternates: { canonical: "/services" },
 };
 
 export default function ServicesPage() {

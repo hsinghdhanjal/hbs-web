@@ -9,13 +9,20 @@ export default function Navbar({ contact = CONTACT_DEFAULT }) {
   const CONTACT = contact;
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState(null);
   const pathname = usePathname();
   const isHome = pathname === "/";
   const onDarkHero = isHome && !scrolled;
   const linkBase = onDarkHero ? "text-[#F8F7F4]" : "text-[#1E1E1E]";
   const subdued = onDarkHero ? "text-[#F8F7F4]/85" : "text-[#1E1E1E]";
 
-  const isActiveLink = (to) => (to === "/" ? pathname === "/" : pathname === to);
+  // Scroll-spy: highlight whichever nav link's section is currently passing
+  // through a thin band near the top of the viewport. Every page ends with
+  // the Contact section, so "Contact" lights up as you scroll into it no
+  // matter which route you're on. Falls back to the plain route match
+  // (below) until a tracked section first comes into view.
+  const isActiveLink = (to) =>
+    activeSection ? NAV_LINKS.find((l) => l.sectionId === activeSection)?.to === to : to === "/" ? pathname === "/" : pathname === to;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -26,6 +33,27 @@ export default function Navbar({ contact = CONTACT_DEFAULT }) {
 
   useEffect(() => {
     setOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    setActiveSection(null);
+    const ids = NAV_LINKS.map((l) => l.sectionId).filter(Boolean);
+    const els = ids.map((id) => document.getElementById(id)).filter(Boolean);
+    if (els.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries.filter((e) => e.isIntersecting);
+        if (visible.length === 0) return;
+        const topmost = visible.reduce((a, b) =>
+          a.boundingClientRect.top < b.boundingClientRect.top ? a : b
+        );
+        setActiveSection(topmost.target.id);
+      },
+      { rootMargin: "-45% 0px -50% 0px", threshold: 0 }
+    );
+    els.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
   }, [pathname]);
 
   // Lock body scroll when mobile menu is open

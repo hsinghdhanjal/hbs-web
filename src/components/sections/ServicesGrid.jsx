@@ -6,6 +6,7 @@ import { SERVICES } from "@/data/site";
 export default function ServicesGrid() {
   return (
     <section
+      id="services"
       data-testid="services-section"
       className="bg-[#F8F7F4] py-24 md:py-36"
     >

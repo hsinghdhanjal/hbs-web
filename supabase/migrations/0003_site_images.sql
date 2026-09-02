@@ -58,14 +58,13 @@ create trigger site_images_set_updated_at
 
 -- Seed one slot per hardcoded image currently in src/data/site.js.
 -- ON CONFLICT DO NOTHING so re-running is safe.
+--
+-- NOTE: project photos are NOT seeded here — they're managed entirely by
+-- /admin/projects (projects.image_url), which has its own uploader. See
+-- 0007_fix_project_images.sql for why the earlier `project-<slug>` slots
+-- were removed.
 insert into public.site_images (slot_key, label, location, page, sort_order) values
-  ('hero-image', 'Home Hero — Background Image', 'Home / Hero section background', 'home', 10),
-
-  ('project-bhandari-shoe-company-complex', 'Project — Bhandari Shoe Company Complex', 'Featured Projects grid (Home + Projects page)', 'projects', 20),
-  ('project-binny-products-bagstore',       'Project — Binny Products Bagstore',        'Featured Projects grid (Home + Projects page)', 'projects', 21),
-  ('project-durgiana-mandir-complex',       'Project — Durgiana Mandir Complex',        'Featured Projects grid (Home + Projects page)', 'projects', 22),
-  ('project-life-bakery-interior',          'Project — Life Bakery Interior',           'Featured Projects grid (Home + Projects page)', 'projects', 23),
-  ('project-gauri-shankar-factory',         'Project — Gauri Shankar Factory',          'Featured Projects grid (Home + Projects page)', 'projects', 24)
+  ('hero-image', 'Home Hero — Background Image', 'Home / Hero section background', 'home', 10)
 on conflict (slot_key) do nothing;
 
 -- Storage policies for the `site-images` bucket (create the bucket first — see note above).

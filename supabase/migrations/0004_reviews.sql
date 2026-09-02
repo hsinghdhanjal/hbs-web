@@ -1,4 +1,4 @@
--- Reviews (client testimonials) — admin-managed, shown on the public site.
+git branch -M main-- Reviews (client testimonials) — admin-managed, shown on the public site.
 -- Previously a hardcoded TESTIMONIALS array in src/data/site.js; this makes
 -- it editable from /admin/reviews without a code deploy.
 -- Idempotent, safe to re-run. Apply via the Supabase SQL editor.

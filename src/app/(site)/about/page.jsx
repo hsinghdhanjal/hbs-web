@@ -6,9 +6,15 @@ import ServiceAreas from "@/components/sections/ServiceAreas";
 import ContactCTA from "@/components/sections/ContactCTA";
 
 export const metadata = {
-  title: "About — Harsimran Architects & Builders",
+  title: "About",
   description:
-    "A premium architecture and construction practice rooted in Punjab — known for integrity, government approval expertise and the courage to take on projects others avoid.",
+    "About Harsimran Architects & Builders (HBS) — a premium architecture and construction practice rooted in Punjab, known for integrity, government approval expertise and the courage to take on projects others avoid.",
+  keywords: [
+    "About Harsimran Architects and Builders",
+    "Harsimran Builders company",
+    "HBS Amritsar about",
+  ],
+  alternates: { canonical: "/about" },
 };
 
 export default function AboutPage() {

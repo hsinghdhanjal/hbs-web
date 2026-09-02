@@ -1,6 +1,10 @@
 import AdminNav from "@/components/admin/AdminNav";
 import { getCurrentUser } from "@/lib/auth";
 
+export const metadata = {
+  robots: { index: false, follow: false },
+};
+
 export default async function AdminLayout({ children }) {
   const user = await getCurrentUser();
   return (

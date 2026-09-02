@@ -14,6 +14,10 @@ import { getImageMap } from "@/lib/images";
 import { listPublishedReviews } from "@/lib/reviews";
 import { listPublishedProjects } from "@/lib/projects";
 
+export const metadata = {
+  alternates: { canonical: "/" },
+};
+
 // Site Images CMS, Reviews and Projects are optional — the site must render
 // its hardcoded defaults untouched if Supabase isn't configured yet or the
 // tables are empty.

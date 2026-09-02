@@ -8,7 +8,7 @@ export default async function ContactCTA() {
   return (
     <section
       data-testid="contact-cta-section"
-      id="consult"
+      id="contact"
       className="bg-[#1E1E1E] text-[#F8F7F4] py-24 md:py-36"
     >
       <div className="hab-container grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">

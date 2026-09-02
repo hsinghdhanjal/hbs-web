@@ -16,6 +16,7 @@ export default function FeaturedProjects({ projects }) {
   const list = projects && projects.length > 0 ? projects : FALLBACK_PROJECTS;
   return (
     <section
+      id="projects"
       data-testid="featured-projects-section"
       className="bg-[#F8F7F4] py-24 md:py-36"
     >

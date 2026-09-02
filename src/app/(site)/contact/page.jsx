@@ -2,9 +2,15 @@ import PageHeader from "@/components/ui-bits/PageHeader";
 import ContactCTA from "@/components/sections/ContactCTA";
 
 export const metadata = {
-  title: "Contact — Harsimran Architects & Builders",
+  title: "Contact",
   description:
-    "Share a few details about your project. A senior team member will be in touch within one business day to schedule a site consultation.",
+    "Contact Harsimran Architects & Builders (Harsimran Builders) in Amritsar. Share a few details about your project — a senior team member will be in touch within one business day to schedule a site consultation.",
+  keywords: [
+    "Contact Harsimran Builders",
+    "Harsimran Architects and Builders contact",
+    "architects in Amritsar phone number",
+  ],
+  alternates: { canonical: "/contact" },
 };
 
 export default function ContactPage() {

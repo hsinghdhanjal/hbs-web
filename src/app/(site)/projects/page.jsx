@@ -4,9 +4,15 @@ import ContactCTA from "@/components/sections/ContactCTA";
 import { listPublishedProjects } from "@/lib/projects";
 
 export const metadata = {
-  title: "Projects — Harsimran Architects & Builders",
+  title: "Projects",
   description:
-    "A curated selection of 70+ projects across Amritsar, Dera Beas and Gurdaspur — commercial complexes, heritage projects, retail interiors, factories and premium residences.",
+    "A curated selection of 70+ Harsimran Builders projects across Amritsar, Dera Beas and Gurdaspur — commercial complexes, heritage projects, retail interiors, factories and premium residences.",
+  keywords: [
+    "Harsimran Builders projects",
+    "Harsimran Architects and Builders portfolio",
+    "construction projects Amritsar",
+  ],
+  alternates: { canonical: "/projects" },
 };
 
 async function getProjects() {

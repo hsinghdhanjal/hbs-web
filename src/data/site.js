@@ -1,5 +1,29 @@
 // Centralised site data for Harsimran Architects & Builders
 
+export const SITE_URL = "https://www.harsimranbuilders.in";
+
+export const ORG_NAME = "Harsimran Architects & Builders";
+export const ORG_ALT_NAMES = [
+  "Harsimran Builders",
+  "Harsimran Architect and Builders",
+  "HBS",
+  "Harsimran Architects and Builders",
+];
+
+export const SEO_KEYWORDS = [
+  "Harsimran Architects & Builders",
+  "Harsimran Builders",
+  "Harsimran Architect and Builders",
+  "HBS Amritsar",
+  "architects in Amritsar",
+  "builders in Amritsar",
+  "construction company Punjab",
+  "architects in Gurdaspur",
+  "residential construction Amritsar",
+  "commercial construction Punjab",
+  "turnkey construction company Punjab",
+];
+
 export const CONTACT = {
   phoneDisplay: "+91 98XX XXX XXX",
   phoneE164: "+919800000000",
@@ -11,12 +35,20 @@ export const CONTACT = {
   hours: "Mon — Sat · 10:00 — 19:00",
 };
 
+// `sectionId` is the in-page anchor a nav link maps to when that section is
+// visible on the current page (scroll-spy) — e.g. every page ends with the
+// ContactCTA section (id="contact"), so "Contact" highlights as you scroll
+// into it regardless of which route you're on.
+//
+// Order matches the homepage's actual top-to-bottom section order (Hero ->
+// FounderMessage/about -> ServicesGrid -> FeaturedProjects -> ContactCTA),
+// so the nav reads in the same sequence a visitor scrolls through.
 export const NAV_LINKS = [
-  { label: "Home", to: "/" },
-  { label: "Projects", to: "/projects" },
-  { label: "Services", to: "/services" },
-  { label: "About", to: "/about" },
-  { label: "Contact", to: "/contact" },
+  { label: "Home", to: "/", sectionId: null },
+  { label: "About", to: "/about", sectionId: "about" },
+  { label: "Services", to: "/services", sectionId: "services" },
+  { label: "Projects", to: "/projects", sectionId: "projects" },
+  { label: "Contact", to: "/contact", sectionId: "contact" },
 ];
 
 export const SERVICE_AREAS = ["Amritsar", "Dera Beas", "Gurdaspur"];
