@@ -82,6 +82,15 @@ export default function Footer({ contact = CONTACT_DEFAULT }) {
         <div className="mt-24 pt-8 border-t border-[#F8F7F4]/15 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-xs text-[#F8F7F4]/55 tracking-[0.18em] uppercase">
           <p>© {new Date().getFullYear()} Harsimran Architects & Builders</p>
           <p>harsimranbuilders.in · All rights reserved</p>
+          <a
+            href="https://mvsingh.in"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-testid="footer-site-credit"
+            className="hab-link hover:text-[#C9A66B]"
+          >
+            Site by mvsingh.in
+          </a>
         </div>
       </div>
     </footer>
