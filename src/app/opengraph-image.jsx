@@ -1,7 +1,13 @@
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
 import { ImageResponse } from "next/og";
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
+
+const logoDataUrl = `data:image/png;base64,${readFileSync(
+  join(process.cwd(), "src/assets/logo-mark-white.png")
+).toString("base64")}`;
 
 export default function OpengraphImage() {
   return new ImageResponse(
@@ -28,13 +34,17 @@ export default function OpengraphImage() {
             letterSpacing: 6,
             textTransform: "uppercase",
             color: "#C9A66B",
-            marginBottom: 28,
+            marginBottom: 32,
           }}
         >
           Punjab · Architecture &amp; Construction
         </div>
-        <div style={{ display: "flex", fontSize: 68, lineHeight: 1.15 }}>
-          Harsimran Architects &amp; Builders
+        <div style={{ display: "flex", alignItems: "center", gap: 28 }}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={logoDataUrl} width={100} height={100} alt="" />
+          <div style={{ display: "flex", fontSize: 62, lineHeight: 1.15 }}>
+            Harsimran Architects &amp; Builders
+          </div>
         </div>
         <div
           style={{

@@ -2,10 +2,12 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { LayoutDashboard, ImagePlus, Star, Building2, UserCog, LogOut, Menu, X } from "lucide-react";
 import { signOutAction } from "@/actions/auth";
 import { cn } from "@/lib/utils";
+import logoWhite from "@/assets/logo-mark-white.png";
 
 const links = [
   { href: "/admin", label: "Enquiries", icon: LayoutDashboard, testid: "adminnav-enquiries" },
@@ -28,7 +30,7 @@ export default function AdminNav({ email }) {
     <header className="bg-[#1E1E1E] text-[#F8F7F4] border-b border-[#C9A66B]">
       <div className="hab-container flex items-center justify-between gap-3 py-4">
         <Link href="/admin" className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-[#C9A66B] text-[#1E1E1E] flex items-center justify-center font-display text-lg">H</div>
+          <Image src={logoWhite} alt="Harsimran Architects & Builders logo" className="w-8 h-8 object-contain shrink-0" />
           <span className="font-display text-lg tracking-tight">HAB ADMIN</span>
         </Link>
 

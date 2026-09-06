@@ -1,9 +1,12 @@
 "use client";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X, Phone, MessageCircle } from "lucide-react";
 import { NAV_LINKS, CONTACT as CONTACT_DEFAULT } from "@/data/site";
+import logoDark from "@/assets/logo-mark-dark.png";
+import logoWhite from "@/assets/logo-mark-white.png";
 
 export default function Navbar({ contact = CONTACT_DEFAULT }) {
   const CONTACT = contact;
@@ -15,6 +18,7 @@ export default function Navbar({ contact = CONTACT_DEFAULT }) {
   const onDarkHero = isHome && !scrolled;
   const linkBase = onDarkHero ? "text-[#F8F7F4]" : "text-[#1E1E1E]";
   const subdued = onDarkHero ? "text-[#F8F7F4]/85" : "text-[#1E1E1E]";
+  const logoSrc = open ? logoDark : onDarkHero ? logoWhite : logoDark;
 
   // Scroll-spy: highlight whichever nav link's section is currently passing
   // through a thin band near the top of the viewport. Every page ends with
@@ -78,7 +82,7 @@ export default function Navbar({ contact = CONTACT_DEFAULT }) {
       }`}
     >
       <div className="hab-container flex items-center justify-between h-16 md:h-20 lg:h-24">
-        {/* Logo — compact monogram on mobile, full on larger screens */}
+        {/* Logo — mark image alongside the wordmark; mark-only on mobile */}
         <Link
           href="/"
           data-testid="navbar-logo"
@@ -87,10 +91,13 @@ export default function Navbar({ contact = CONTACT_DEFAULT }) {
             open ? "text-[#1E1E1E]" : linkBase
           }`}
         >
-          <span className="font-display text-xl md:text-2xl tracking-tight md:hidden">
-            <span className="italic">H</span>A
-            <span className="italic text-[#C9A66B]">B</span>
-          </span>
+          <Image
+            src={logoSrc}
+            alt="Harsimran Architects & Builders logo"
+            data-testid="navbar-logo-mark"
+            className="h-9 w-9 md:h-11 md:w-11 lg:h-12 lg:w-12 object-contain shrink-0"
+            priority
+          />
           <span className="hidden md:flex md:flex-col leading-none">
             <span className="font-display text-xl md:text-2xl">Harsimran</span>
             <span

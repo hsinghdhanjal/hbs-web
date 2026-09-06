@@ -1,5 +1,7 @@
 import Link from "next/link";
+import Image from "next/image";
 import { CONTACT as CONTACT_DEFAULT, NAV_LINKS, SERVICE_AREAS } from "@/data/site";
+import logoWhite from "@/assets/logo-mark-white.png";
 
 export default function Footer({ contact = CONTACT_DEFAULT }) {
   const CONTACT = contact;
@@ -11,7 +13,15 @@ export default function Footer({ contact = CONTACT_DEFAULT }) {
       <div className="hab-container pt-24 md:pt-32 pb-12">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-10">
           <div className="md:col-span-6">
-            <p className="hab-overline text-[#C9A66B]">Harsimran · Punjab</p>
+            <div className="flex items-center gap-3">
+              <Image
+                src={logoWhite}
+                alt="Harsimran Architects & Builders logo"
+                data-testid="footer-logo-mark"
+                className="h-8 w-8 object-contain shrink-0"
+              />
+              <p className="hab-overline text-[#C9A66B]">Harsimran · Punjab</p>
+            </div>
             <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl mt-6 leading-[1.05]">
               Building<br />
               <span className="italic text-[#C9A66B]">enduring</span> spaces<br />

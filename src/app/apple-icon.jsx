@@ -1,7 +1,13 @@
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
 import { ImageResponse } from "next/og";
 
 export const size = { width: 180, height: 180 };
 export const contentType = "image/png";
+
+const logoDataUrl = `data:image/png;base64,${readFileSync(
+  join(process.cwd(), "src/assets/logo-mark-square-light.png")
+).toString("base64")}`;
 
 export default function AppleIcon() {
   return new ImageResponse(
@@ -13,16 +19,11 @@ export default function AppleIcon() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "#1E1E1E",
-          color: "#F8F7F4",
-          fontFamily: "Georgia, serif",
-          fontSize: 96,
-          letterSpacing: -4,
+          background: "#FFFFFF",
         }}
       >
-        <span style={{ fontStyle: "italic" }}>H</span>
-        <span>A</span>
-        <span style={{ fontStyle: "italic", color: "#C9A66B" }}>B</span>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={logoDataUrl} width={180} height={180} alt="" />
       </div>
     ),
     { ...size }

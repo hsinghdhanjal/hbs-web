@@ -1,7 +1,9 @@
 "use client";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { ArrowDown } from "lucide-react";
 import { HERO } from "@/data/site";
+import logoWhite from "@/assets/logo-mark-white.png";
 
 export default function Hero({ heroMedia }) {
   const mediaUrl = heroMedia?.url || HERO.image;
@@ -53,7 +55,7 @@ export default function Hero({ heroMedia }) {
         <div className="absolute inset-0 grain opacity-50 pointer-events-none" />
       </div>
 
-      {/* Centered HAB monogram */}
+      {/* Centered logo */}
       <div className="relative z-10 h-full flex flex-col items-center justify-center px-6 text-center">
         <motion.p
           initial={{ opacity: 0, y: 12 }}
@@ -67,21 +69,21 @@ export default function Hero({ heroMedia }) {
           <span className="inline-block w-10 h-px align-middle ml-3 bg-[#C9A66B]" />
         </motion.p>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 30, letterSpacing: "0.15em" }}
-          animate={{ opacity: 1, y: 0, letterSpacing: "-0.04em" }}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          className="font-display text-[#F8F7F4] leading-none mt-6 md:mt-8"
+          className="mt-6 md:mt-8 w-[clamp(7rem,22vw,22rem)] aspect-square"
           data-testid="hero-monogram"
-          style={{
-            fontSize: "clamp(7rem, 22vw, 22rem)",
-            textShadow: "0 6px 40px rgba(0,0,0,0.55)",
-          }}
+          style={{ filter: "drop-shadow(0 6px 40px rgba(0,0,0,0.55))" }}
         >
-          <span className="italic">H</span>
-          <span>A</span>
-          <span className="italic text-[#C9A66B]">B</span>
-        </motion.h1>
+          <Image
+            src={logoWhite}
+            alt="Harsimran Architects & Builders"
+            className="w-full h-full object-contain"
+            priority
+          />
+        </motion.div>
 
         <motion.p
           initial={{ opacity: 0, y: 12 }}
